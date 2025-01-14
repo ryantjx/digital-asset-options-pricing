@@ -62,10 +62,10 @@ Timeframes : 15m, 1h, 24h
 1. Options, Futures, and Other Derivatives 10th edition, John C. Hull
 2. Option Volatility and Pricing: Advanced Trading Strategies and Techniques (2ND), Sheldon Natenberg
 3. Stochastic Volatility Modeling, Lorenzo Bergomi 
-### X
 
 ### Papers
 1. [Options Driven Volatility Forecasting](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4790644)
+   1. some inspiration for further improvements - utilizing volatility forecasting to help in pricing. Use a regression model to get to improve pricing with other factors.
 
 ### Github Projects
 1. [Pricing of Some Exotic Options](https://github.com/AliBakly/Pricing-of-Some-Exotic-Options/tree/main)
