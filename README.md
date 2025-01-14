@@ -29,11 +29,19 @@ For more information, refer to the [knowledge base](https://www.deribit.com/kb/l
 ## 1 Data Collection and Analysis
 This chapter focuses on the development of a data collection module for Deribit Options.
 
-## 2 Pricing Models of an Option
+## X Pricing Models of an Option
 This chapter focuses on the development of multiple pricing models for an European Option. In this chapter, we will design multiple models with different approaches to calculate the price of an European Option.
 
-## 3 Option predicted price vs Actual Price comparison
+### X.X How Realized Volatility affects the pricing models? 
+
+### X.X What is the IV given the prices?
+
+## X Option predicted price vs Actual Price comparison
 This chapter focuses on the estimated price of an option compared to the actual price. 
+
+### X.X How different are the prices / IV compared to the quoted price?
+
+### X.X Which is better? Model or Actual? Is there a better way to price?
 
 ## X Possible Trading Strategies
 This chapter focuses on using the information from the previous chapters to generate a trading strategy that exploits market inefficiencies. 
@@ -49,3 +57,9 @@ Timeframes : 15m, 1h, 24h
 ## Development
 
 ## References
+
+### Books
+
+### X
+
+### Papers
