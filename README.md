@@ -9,10 +9,11 @@
   - [1 Data Collection and Analysis](#1-data-collection-and-analysis)
   - [X Pricing Models of an Option](#x-pricing-models-of-an-option)
     - [X.X How Realized Volatility affects the pricing models?](#xx-how-realized-volatility-affects-the-pricing-models)
-    - [X.X What is the IV given the prices?](#xx-what-is-the-iv-given-the-prices)
+    - [X.X What are some of the pricing models used? What is the IV given the prices?](#xx-what-are-some-of-the-pricing-models-used-what-is-the-iv-given-the-prices)
   - [X Option predicted price vs Actual Price comparison](#x-option-predicted-price-vs-actual-price-comparison)
-    - [X.X How different are the prices / IV compared to the quoted price?](#xx-how-different-are-the-prices--iv-compared-to-the-quoted-price)
-    - [X.X Which is better? Model or Actual? Is there a better way to price?](#xx-which-is-better-model-or-actual-is-there-a-better-way-to-price)
+    - [X.X Are the prices / IV compared to the quoted price different?](#xx-are-the-prices--iv-compared-to-the-quoted-price-different)
+    - [X.X Is there a model that prices the closest to the quoted price?](#xx-is-there-a-model-that-prices-the-closest-to-the-quoted-price)
+    - [Are there any times where the model prices the instrument differently from the quoted prices (outliers)?](#are-there-any-times-where-the-model-prices-the-instrument-differently-from-the-quoted-prices-outliers)
   - [X Possible Trading Strategies](#x-possible-trading-strategies)
   - [Further Exploration](#further-exploration)
   - [Development](#development)
@@ -70,17 +71,19 @@ This chapter focuses on the development of multiple pricing models for an Europe
 ### X.X How Realized Volatility affects the pricing models? 
 In this topic, we explore different volatility models, and select the best volatility model to understand digital assets. 
 
-### X.X What is the IV given the prices?
+### X.X What are some of the pricing models used? What is the IV given the prices?
 
 ## X Option predicted price vs Actual Price comparison
 This chapter focuses on the estimated price of an option compared to the actual price. 
 
-### X.X How different are the prices / IV compared to the quoted price?
+### X.X Are the prices / IV compared to the quoted price different? 
 
-### X.X Which is better? Model or Actual? Is there a better way to price?
+### X.X Is there a model that prices the closest to the quoted price?
+
+### Are there any times where the model prices the instrument differently from the quoted prices (outliers)?
 
 ## X Possible Trading Strategies
-This chapter focuses on using the information from the previous chapters to generate a trading strategy that exploits market inefficiencies. 
+This chapter focuses on using the information from the previous chapters to generate a trading strategy that exploits market inefficiencies. Can we use the model to generate a trading strategy based on the mispricing?
 
 Timeframes : 15m, 1h, 24h
 
