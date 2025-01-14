@@ -42,4 +42,23 @@ Timeframes : 15m, 1h, 24h
 
 ## Development
 
+<<<<<<< Updated upstream
 ## References
+=======
+## References
+
+### Books
+1. Options, Futures, and Other Derivatives 10th edition, John C. Hull
+2. Option Volatility and Pricing: Advanced Trading Strategies and Techniques (2ND), Sheldon Natenberg
+3. Stochastic Volatility Modeling, Lorenzo Bergomi 
+### X
+
+### Papers
+1. [Options Driven Volatility Forecasting](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4790644)
+
+### Github Projects
+1. [Pricing of Some Exotic Options](https://github.com/AliBakly/Pricing-of-Some-Exotic-Options/tree/main)
+
+### Notes
+1. [Volatility Models (ryantjx)](https://github.com/ryantjx/ryantjx-quant/blob/main/notes/satistics/volatility_models.md)
+>>>>>>> Stashed changes
