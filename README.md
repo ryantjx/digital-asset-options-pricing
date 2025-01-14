@@ -1,5 +1,4 @@
 # digital-asset-options-pricing
-
 ## Table of Contents
 - [digital-asset-options-pricing](#digital-asset-options-pricing)
   - [Table of Contents](#table-of-contents)
@@ -69,6 +68,7 @@ This chapter focuses on the development of a data collection module for Deribit 
 This chapter focuses on the development of multiple pricing models for an European Option. In this chapter, we will design multiple models with different approaches to calculate the price of an European Option.
 
 ### X.X How Realized Volatility affects the pricing models? 
+In this topic, we explore different volatility models, and select the best volatility model to understand digital assets. 
 
 ### X.X What is the IV given the prices?
 
