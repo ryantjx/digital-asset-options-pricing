@@ -9,7 +9,7 @@
   - [1 Data Collection and Analysis](#1-data-collection-and-analysis)
   - [X Pricing Models of an Option](#x-pricing-models-of-an-option)
     - [X.X How Realized Volatility affects the pricing models?](#xx-how-realized-volatility-affects-the-pricing-models)
-    - [X.X What are some of the pricing models used? What is the IV given the prices?](#xx-what-are-some-of-the-pricing-models-used-what-is-the-iv-given-the-prices)
+    - [X.X What are some of the pricing models used? What is the IV given the prices](#xx-what-are-some-of-the-pricing-models-used-what-is-the-iv-given-the-prices)
   - [X Option predicted price vs Actual Price comparison](#x-option-predicted-price-vs-actual-price-comparison)
     - [X.X Are the prices / IV compared to the quoted price different?](#xx-are-the-prices--iv-compared-to-the-quoted-price-different)
     - [X.X Is there a model that prices the closest to the quoted price?](#xx-is-there-a-model-that-prices-the-closest-to-the-quoted-price)
@@ -71,7 +71,7 @@ This chapter focuses on the development of multiple pricing models for an Europe
 ### X.X How Realized Volatility affects the pricing models? 
 In this topic, we explore different volatility models, and select the best volatility model to understand digital assets. 
 
-### X.X What are some of the pricing models used? What is the IV given the prices?
+### X.X What are some of the pricing models used? What is the IV given the prices
 
 ## X Option predicted price vs Actual Price comparison
 This chapter focuses on the estimated price of an option compared to the actual price. 
