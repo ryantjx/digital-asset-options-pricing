@@ -15,14 +15,9 @@
     - [X.X Is there a model that prices the closest to the quoted price?](#xx-is-there-a-model-that-prices-the-closest-to-the-quoted-price)
     - [Are there any times where the model prices the instrument differently from the quoted prices (outliers)?](#are-there-any-times-where-the-model-prices-the-instrument-differently-from-the-quoted-prices-outliers)
   - [X Possible Trading Strategies](#x-possible-trading-strategies)
-  - [Further Exploration](#further-exploration)
   - [Development](#development)
-  - [References](#references)
-    - [Books](#books)
-    - [Papers](#papers)
-    - [Github Projects](#github-projects)
-    - [Notes](#notes)
-    - [Additional Resources](#additional-resources)
+  - [Timeline](#timeline)
+  - [Further Exploration](#further-exploration)
 
 ## Motivation
 Recently, I had an interview for a FX and Rates markets strategy team. During the interview, my biggest difficulty was generating a fair value. I was tasked with generating a Fair Value for a Futures contract, a question I completely fumbled. Next, I was asked to price the cost of a second-hand car. I fumbled that too. The answer was just price of COE * Tax Rebate something along that lines. What I also realized, is that I actually did something like this. I attempted to price an options contract using the Black-Scholes Model, but I stopped because "the problem got too complex" and "nobody uses the Black-Scholes Model". After experiencing this setback, I was so frustrated at myself. These are things that should be at the tips of my fingers! And so, this is my journey on learning to price digital asset options.
@@ -87,30 +82,28 @@ This chapter focuses on using the information from the previous chapters to gene
 
 Timeframes : 15m, 1h, 24h
 
-## Further Exploration
+---
 
+## Development
+- [X] Deribit API Data Collection
+- [ ] Volatility Module
+- [ ] Pricing Module
+
+---
+
+## Timeline
+
+| Week | Tasks | Notes |
+|--------------|----------|----------------|
+|13 - 19 Jan 25| Organizing Repository, Researching on current projects, Getting inspirations and other ground work. | First week back at NUS! |
+|20 - 26 Jan 25| Options, Futures, and Other Derivatives 10th edition, John C. Hull **Chap 14 to 21** <br>  |  |
+|27 Jan - 2 Feb 25|  | CNY Week, slower progress. |
+|3 - 9 Feb 25|  |  |
+|10 - 16 Feb 25|  |  |
+
+---
+
+## Further Exploration
 - Deribit ETH Options
 - Deribit DVOL Futures
 - Binance BTC/ETH Options
-
-## Development
-
-## References
-
-### Books
-1. Options, Futures, and Other Derivatives 10th edition, John C. Hull
-2. Option Volatility and Pricing: Advanced Trading Strategies and Techniques (2ND), Sheldon Natenberg
-3. Stochastic Volatility Modeling, Lorenzo Bergomi 
-
-### Papers
-1. [Options Driven Volatility Forecasting](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4790644)
-   1. some inspiration for further improvements - utilizing volatility forecasting to help in pricing. Use a regression model to get to improve pricing with other factors.
-
-### Github Projects
-1. [Pricing of Some Exotic Options](https://github.com/AliBakly/Pricing-of-Some-Exotic-Options/tree/main)
-
-### Notes
-1. [Volatility Models (ryantjx)](https://github.com/ryantjx/ryantjx-quant/blob/main/notes/satistics/volatility_models.md)
-
-### Additional Resources
-1. ["2) Unsophisticated traders think selling options is free money. So the big girls are massive option buyers and structurally long volatility."](https://x.com/bennpeifert/status/1878783199398273218)
