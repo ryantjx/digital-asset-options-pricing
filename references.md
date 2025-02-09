@@ -28,10 +28,19 @@
       - [Parameter risk in the Black and Scholes model by Marc Henrard (2003)](https://www.researchgate.net/publication/23749495_Parameter_risk_in_the_Black_and_Scholes_model)
       - [FAQ’s in Option Pricing Theory by Peter Carr (2005)](https://www.researchgate.net/profile/Peter-Carr-4/publication/2335550_FAQ's_in_Option_Pricing_Theory/links/559ee07908ae03c44a5cdc68/FAQs-in-Option-Pricing-Theory.pdf)
         - IX Which volatility should one hedge at - historical or implied?
+3. [https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5771](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5771)
+   1. This paper examines the proposition that investing in common stocks is less risky the longer an investor plans to hold them. If the proposition were true, then the cost of insuring against earning less than the risk-free rate of interest should decline as the length of the investment horizon increases. The paper shows that the opposite is true even if stock returns are "mean-reverting" in the long run.
+
 ### Github Projects
 1. [Pricing of Some Exotic Options](https://github.com/AliBakly/Pricing-of-Some-Exotic-Options/tree/main)
 
 
 ### X
 1. ["2) Unsophisticated traders think selling options is free money. So the big girls are massive option buyers and structurally long volatility."](https://x.com/bennpeifert/status/1878783199398273218)
-2. ["The lowest-hanging fruit in sell-side derivatives research is implied-realized vol spread." "](https://x.com/OneHotCode1/status/1877957089500254656)
+2. ["The lowest-hanging fruit in sell-side derivatives research is implied-realized vol spread."](https://x.com/OneHotCode1/status/1877957089500254656)
+3. ["GVV (gamma-vanna-volga) modeling."](https://x.com/bennpeifert/status/1888254737075835311)
+
+### Online Resources
+1. Moontower
+   1. [Intro to Simulating Dynamically Hedged Option Positions](https://blog.moontower.ai/intro-to-simulating-dynamically-hedged-option-positions/)
+2. 

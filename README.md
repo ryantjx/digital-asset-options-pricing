@@ -86,8 +86,8 @@ Timeframes : 15m, 1h, 24h
 
 ## Development
 - [X] Deribit API Data Collection
-- [ ] Volatility Module
-- [ ] Pricing Module
+- [ ] Pricing
+- [ ] Volatility
 
 ---
 
@@ -96,10 +96,11 @@ Timeframes : 15m, 1h, 24h
 | Week | Tasks | Notes |
 |--------------|----------|----------------|
 |13 - 19 Jan 25| Organizing Repository, Researching on current projects, Getting inspirations and other ground work. | First week back at NUS! |
-|20 - 26 Jan 25| Options, Futures, and Other Derivatives 10th edition, John C. Hull **Chap 14 to 21** <br>  |  |
-|27 Jan - 2 Feb 25|  | CNY Week, slower progress. |
-|3 - 9 Feb 25|  |  |
-|10 - 16 Feb 25|  |  |
+|20 - 26 Jan 25| Options, Futures, and Other Derivatives 10th edition, John C. Hull **Chap 14 to 18** <br>  |  |
+|27 Jan - 2 Feb 25| **Chap 19-23** | CNY Week, slower progress. |
+|3 - 9 Feb 25| Writing Notes. | **Chapter 17-23** |
+|10 - 16 Feb 25| Building pricing scripts, testing out different approaches. Observe pricing difference between live and predicted. |  |
+|24 Feb - 2 Mar 25| Devise trading strategies, backtest. | |
 
 ---
 
@@ -107,3 +108,4 @@ Timeframes : 15m, 1h, 24h
 - Deribit ETH Options
 - Deribit DVOL Futures
 - Binance BTC/ETH Options
+- CCXT Integration - https://github.com/ccxt/ccxt/wiki/Manual
