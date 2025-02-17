@@ -1,6 +1,6 @@
-# digital-asset-options-pricing
+# Deribit Options Pricing and Theoretical Value
 ## Table of Contents
-- [digital-asset-options-pricing](#digital-asset-options-pricing)
+- [Deribit Options Pricing and Theoretical Value](#deribit-options-pricing-and-theoretical-value)
   - [Table of Contents](#table-of-contents)
   - [Motivation](#motivation)
   - [Goals](#goals)
@@ -8,12 +8,15 @@
     - [Instrument](#instrument)
   - [1 Data Collection and Analysis](#1-data-collection-and-analysis)
   - [X Pricing Models of an Option](#x-pricing-models-of-an-option)
-    - [X.X How Realized Volatility affects the pricing models?](#xx-how-realized-volatility-affects-the-pricing-models)
     - [X.X What are some of the pricing models used? What is the IV given the prices](#xx-what-are-some-of-the-pricing-models-used-what-is-the-iv-given-the-prices)
+    - [X.X How Realized Volatility affects the pricing models?](#xx-how-realized-volatility-affects-the-pricing-models)
+    - [X.X Greek Sensitivities](#xx-greek-sensitivities)
   - [X Option predicted price vs Actual Price comparison](#x-option-predicted-price-vs-actual-price-comparison)
     - [X.X Are the prices / IV compared to the quoted price different?](#xx-are-the-prices--iv-compared-to-the-quoted-price-different)
     - [X.X Is there a model that prices the closest to the quoted price?](#xx-is-there-a-model-that-prices-the-closest-to-the-quoted-price)
     - [Are there any times where the model prices the instrument differently from the quoted prices (outliers)?](#are-there-any-times-where-the-model-prices-the-instrument-differently-from-the-quoted-prices-outliers)
+  - [X Sensitivity Analysis](#x-sensitivity-analysis)
+  - [X Volatility Surface Display?](#x-volatility-surface-display)
   - [X Possible Trading Strategies](#x-possible-trading-strategies)
   - [Development](#development)
   - [Timeline](#timeline)
@@ -63,10 +66,15 @@ This chapter focuses on the development of a data collection module for Deribit 
 ## X Pricing Models of an Option
 This chapter focuses on the development of multiple pricing models for an European Option. In this chapter, we will design multiple models with different approaches to calculate the price of an European Option.
 
+### X.X What are some of the pricing models used? What is the IV given the prices
+- Black-Scholes
+- Binomial
+
 ### X.X How Realized Volatility affects the pricing models? 
 In this topic, we explore different volatility models, and select the best volatility model to understand digital assets. 
 
-### X.X What are some of the pricing models used? What is the IV given the prices
+### X.X Greek Sensitivities
+How to calculate the greeks for the different scenarios.
 
 ## X Option predicted price vs Actual Price comparison
 This chapter focuses on the estimated price of an option compared to the actual price. 
@@ -76,6 +84,11 @@ This chapter focuses on the estimated price of an option compared to the actual 
 ### X.X Is there a model that prices the closest to the quoted price?
 
 ### Are there any times where the model prices the instrument differently from the quoted prices (outliers)?
+
+## X Sensitivity Analysis
+Stress-testing the different scenarios.
+
+## X Volatility Surface Display?
 
 ## X Possible Trading Strategies
 This chapter focuses on using the information from the previous chapters to generate a trading strategy that exploits market inefficiencies. Can we use the model to generate a trading strategy based on the mispricing?
@@ -88,6 +101,8 @@ Timeframes : 15m, 1h, 24h
 - [X] Deribit API Data Collection
 - [ ] Pricing
 - [ ] Volatility
+- [ ] Market Prices vs Model-Derived theoretical values.
+- [ ] Sensitivity Analysis 
 
 ---
 
@@ -98,14 +113,20 @@ Timeframes : 15m, 1h, 24h
 |13 - 19 Jan 25| Organizing Repository, Researching on current projects, Getting inspirations and other ground work. | First week back at NUS! |
 |20 - 26 Jan 25| Options, Futures, and Other Derivatives 10th edition, John C. Hull **Chap 14 to 18** <br>  |  |
 |27 Jan - 2 Feb 25| **Chap 19-23** | CNY Week, slower progress. |
-|3 - 9 Feb 25| Writing Notes. | **Chapter 17-23** |
-|10 - 16 Feb 25| Building pricing scripts, testing out different approaches. Observe pricing difference between live and predicted. |  |
+|3 - 9 Feb 25| Writing Notes. | **Chapter 17-23** | 
+|10 - 16 Feb 25| Completing Notes | **Chapter 20-23** |
+|17 - 23 Feb 25| Brainstorming, build pricing scripts, compare pricing difference. |  |
 |24 Feb - 2 Mar 25| Devise trading strategies, backtest. | |
 
 ---
-
 ## Further Exploration
-- Deribit ETH Options
-- Deribit DVOL Futures
-- Binance BTC/ETH Options
-- CCXT Integration - https://github.com/ccxt/ccxt/wiki/Manual
+- Instruments
+  - Deribit ETH Options
+  - Deribit DVOL Futures
+  - Binance BTC/ETH Options
+  - CCXT Integration - https://github.com/ccxt/ccxt/wiki/Manual
+- Options Tools
+  - GV (Graph Vol) - This is a powerful visualization tool for options volatility. It allows you to plot implied volatility surfaces and term structures, helping traders understand how volatility varies across different strike prices and expiration dates.
+  - HVG (Historical Volatility Graph) - This shows historical volatility patterns over time. It's crucial for comparing current implied volatility levels against historical realized volatility, which helps in determining if options are relatively expensive or cheap.
+  - VCA (Volatility/Correlation Analysis) - Analyzes relationships between volatilities of different instruments and their correlations, particularly useful for multi-asset options strategies.
+- Pricing Exotic Options
