@@ -220,10 +220,10 @@ The overnight component captures the variance of overnight returns:
 $$\sigma^2_o = \frac{1}{n-1} \sum_{i=1}^n (u_i - \bar{u})^2$$
 
 where:
-- $ u_i = \ln(\frac{O_i}{C_{i-1}})$
+- $u_i = \ln(\frac{O_i}{C_{i-1}})$
   - $O_i$ is the opening price on day i
   - $C_{i-1}$ is the closing price on day i-1
-- $ \bar{u} = \frac{1}{n} \sum_{i=1}^n u_i$
+- $\bar{u} = \frac{1}{n} \sum_{i=1}^n u_i$
   - n is the number of observations
 
 ***2 Open-to-Close Volatility***
@@ -232,10 +232,10 @@ The open-to-close component measures intraday volatility:
 $$\sigma^2_c = \frac{1}{n-1} \sum_{i=1}^n (c_i - \bar{c})^2$$
 
 where:
-- $ c_i = \ln(\frac{C_i}{O_i})$
+- $c_i = \ln(\frac{C_i}{O_i})$
   - $C_i$ is the closing price on day i
   - $O_i$ is the opening price on day i
-- $ \bar{c} = \frac{1}{n} \sum_{i=1}^n c_i $
+- $\bar{c} = \frac{1}{n} \sum_{i=1}^n c_i$
 
 ***3 Rogers-Satchell Volatility***
 The Rogers-Satchell component accounts for drift in the price process:
@@ -253,6 +253,7 @@ where:
 $$SE(\sigma_{YZ}) = \sigma_{YZ} \sqrt{\frac{1}{2n}}$$
 
 ***Adjusting for different exchanges***
+
 $$\sigma^2_{YZ,weighted} = \sum_{j=1}^m w_j \sigma^2_{YZ,j}$$
 
 where:
