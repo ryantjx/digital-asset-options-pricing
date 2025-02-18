@@ -7,24 +7,24 @@
   - [Introduction](#introduction)
     - [Instrument](#instrument)
 - [Topics](#topics)
-  - [1 Foundational Implementation](#1-foundational-implementation)
+  - [1 Foundations](#1-foundations)
     - [1.1 Options Pricing](#11-options-pricing)
       - [Questions](#questions)
-      - [1.1 Constant Volatility Models](#11-constant-volatility-models)
-        - [1.1.1 Binomial Tree](#111-binomial-tree)
-        - [1.1.2 Black-Scholes](#112-black-scholes)
-        - [1.1.3 Monte Carlo](#113-monte-carlo)
-      - [1.2 Advanced Pricing Models](#12-advanced-pricing-models)
-        - [1.2.1 Local Volatility](#121-local-volatility)
-          - [1.2.1.1 Dupire's Framework](#1211-dupires-framework)
-          - [1.2.1.2 Calibration Methods](#1212-calibration-methods)
-        - [1.2.2 Jump Processes](#122-jump-processes)
-          - [1.2.2.1 Merton Jump Diffusion](#1221-merton-jump-diffusion)
-          - [1.2.2.2 Kou Double Exponential](#1222-kou-double-exponential)
-        - [1.2.3 Stochastic Volatility](#123-stochastic-volatility)
-          - [1.2.3.1 Heston Model](#1231-heston-model)
-          - [1.2.3.2 SABR Model](#1232-sabr-model)
-          - [1.2.3.3 Rough Volatility](#1233-rough-volatility)
+      - [1.1.1 Constant Volatility Models](#111-constant-volatility-models)
+        - [1.1.1.1 Binomial Tree](#1111-binomial-tree)
+        - [1.1.1.2 Black-Scholes](#1112-black-scholes)
+        - [1.1.1.3 Monte Carlo](#1113-monte-carlo)
+      - [1.1.2 Advanced Pricing Models](#112-advanced-pricing-models)
+        - [1.1.2.1 Local Volatility](#1121-local-volatility)
+          - [1.1.2.1.1 Dupire's Framework](#11211-dupires-framework)
+          - [1.1.2.1.2 Calibration Methods](#11212-calibration-methods)
+        - [1.1.2.2 Jump Processes](#1122-jump-processes)
+          - [1.1.2.2.1 Merton Jump Diffusion](#11221-merton-jump-diffusion)
+          - [1.1.2.2.2 Kou Double Exponential](#11222-kou-double-exponential)
+        - [1.1.2.3 Stochastic Volatility](#1123-stochastic-volatility)
+          - [1.1.2.3.1 Heston Model](#11231-heston-model)
+          - [1.1.2.3.2 SABR Model](#11232-sabr-model)
+          - [1.1.2.3.3 Rough Volatility](#11233-rough-volatility)
     - [1.2 Greeks](#12-greeks)
       - [Delta and Gamma](#delta-and-gamma)
       - [Theta](#theta)
@@ -134,7 +134,7 @@ For more information, refer to the [knowledge base](https://www.deribit.com/kb/l
 
 ---
 # Topics
-## 1 Foundational Implementation
+## 1 Foundations
 
 ### 1.1 Options Pricing
 This chapter focuses on the development of multiple pricing models for an European Option. In this chapter, we will design multiple models with different approaches to calculate the price of an European Option.
@@ -142,31 +142,29 @@ This chapter focuses on the development of multiple pricing models for an Europe
 #### Questions
 1. What are some of the pricing models used? What is the IV given the prices?
 
-#### 1.1 Constant Volatility Models
-##### 1.1.1 Binomial Tree
+#### 1.1.1 Constant Volatility Models
+##### 1.1.1.1 Binomial Tree
 CRR Implementation
 Adaptive Mesh Methods
-##### 1.1.2 Black-Scholes
+##### 1.1.1.2 Black-Scholes
 Basic Implementation
 Model Assumptions
 Limiations
-##### 1.1.3 Monte Carlo
+##### 1.1.1.3 Monte Carlo
 Basic Path Simulation
 Variance Reduction Techniques
 
-#### 1.2 Advanced Pricing Models
-##### 1.2.1 Local Volatility
-
-###### 1.2.1.1 Dupire's Framework
-###### 1.2.1.2 Calibration Methods
-##### 1.2.2 Jump Processes
-###### 1.2.2.1 Merton Jump Diffusion
-###### 1.2.2.2 Kou Double Exponential
-##### 1.2.3 Stochastic Volatility
-
-###### 1.2.3.1 Heston Model
-###### 1.2.3.2 SABR Model
-###### 1.2.3.3 Rough Volatility
+#### 1.1.2 Advanced Pricing Models
+##### 1.1.2.1 Local Volatility
+###### 1.1.2.1.1 Dupire's Framework
+###### 1.1.2.1.2 Calibration Methods
+##### 1.1.2.2 Jump Processes
+###### 1.1.2.2.1 Merton Jump Diffusion
+###### 1.1.2.2.2 Kou Double Exponential
+##### 1.1.2.3 Stochastic Volatility
+###### 1.1.2.3.1 Heston Model
+###### 1.1.2.3.2 SABR Model
+###### 1.1.2.3.3 Rough Volatility
 <!-- ##### 1.2.4 Mixed Models
 ###### 1.2.4.1 Stochastic Volatility with Jumps
 ###### 1.2.4.2 Regime-Switching Extensions -->
