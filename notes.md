@@ -20,10 +20,11 @@
           - [1.1.2.3.2 SABR Model](#11232-sabr-model)
           - [1.1.2.3.3 Rough Volatility](#11233-rough-volatility)
     - [1.2 Greeks](#12-greeks)
-      - [Delta and Gamma](#delta-and-gamma)
-      - [Theta](#theta)
-      - [Vega](#vega)
-      - [Validation](#validation)
+      - [Delta (Δ)](#delta-δ)
+      - [Gamma (Γ)](#gamma-γ)
+      - [Theta (Θ)](#theta-θ)
+      - [Vega (ν)](#vega-ν)
+      - [Rho (ρ)](#rho-ρ)
     - [1.3 Model Validation](#13-model-validation)
       - [1.3.1 Put Call Parity Test](#131-put-call-parity-test)
       - [1.3.2 Boundary Condition Tests](#132-boundary-condition-tests)
@@ -96,9 +97,37 @@ This chapter focuses on the development of multiple pricing models for an Europe
 CRR Implementation
 Adaptive Mesh Methods
 ##### 1.1.1.2 Black-Scholes
-Basic Implementation
-Model Assumptions
-Limiations
+***European Put Option***
+$$P(S,t) = Ke^{-r(T-t)}N(-d_2) - SN(-d_1)$$
+***European Call Option***
+$$C(S,t) = SN(d_1) - Ke^{-r(T-t)}N(d_2)$$
+
+$$d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)(T-t)}{\sigma\sqrt{T-t}}$$
+
+$$d_2 = d_1 - \sigma\sqrt{T-t}$$
+
+- $T$ is the expiration time (maturity date) (in years)
+- $t$ is the current time (in years)
+
+And $N(x)$ is the cumulative distribution function of the standard normal distribution:
+
+$$N(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{z^2}{2}}dz$$
+
+***Model Assumptions***
+1. The price of the underlying asset follows a geometric Brownian motion with constant drift and volatility
+2. No arbitrage opportunities exist
+3. It's possible to build a risk-free portfolio by combining the option and the underlying asset
+4. Frictionless markets (no transaction costs or taxes)
+5. Continuous trading is possible
+6. The risk-free rate is constant and the same for all maturities
+7. The underlying asset pays no dividends
+
+***Limitation***
+- Assumption of constant volatility (which doesn't match market reality)
+- No consideration for dividends
+- Assumes European-style options (cannot be exercised early)
+- Assumes log-normal distribution of returns
+
 ##### 1.1.1.3 Monte Carlo
 Basic Path Simulation
 Variance Reduction Techniques
@@ -140,10 +169,36 @@ Market State Classification -->
 ### 1.2 Greeks 
 ![Sensitivity of Greeks](notebooks/1_foundation/greeks.png)
 ![Greeks vs Maturities](notebooks/1_foundation/greeks.png)
-#### Delta and Gamma
-#### Theta
-#### Vega
-#### Validation
+#### Delta (Δ)
+- **Call**: $\Delta_{\text{call}} = \frac{\partial C}{\partial S} = N(d_1)$
+- **Put**: $\Delta_{\text{put}} = \frac{\partial P}{\partial S} = N(d_1) - 1 = -N(-d_1)$
+- *Interpretation*: Sensitivity to changes in the underlying price
+
+#### Gamma (Γ)
+- **Call**: $\Gamma_{\text{call}} = \frac{\partial^2 C}{\partial S^2} = \frac{N'(d_1)}{S\sigma\sqrt{T-t}}$
+- **Put**: $\Gamma_{\text{put}} = \frac{\partial^2 P}{\partial S^2} = \frac{N'(d_1)}{S\sigma\sqrt{T-t}}$
+- *Interpretation*: Rate of change of Delta (same for calls and puts)
+
+#### Theta (Θ)
+- **Call**: $\Theta_{\text{call}} = \frac{\partial C}{\partial t} = -\frac{S\sigma N'(d_1)}{2\sqrt{T-t}} - rKe^{-r(T-t)}N(d_2)$
+- **Put**: $\Theta_{\text{put}} = \frac{\partial P}{\partial t} = -\frac{S\sigma N'(d_1)}{2\sqrt{T-t}} + rKe^{-r(T-t)}N(-d_2)$
+- *Interpretation*: Sensitivity to the passage of time
+
+#### Vega (ν)
+- **Call**: $\text{Vega}_{\text{call}} = \frac{\partial C}{\partial \sigma} = S\sqrt{T-t}N'(d_1)$
+- **Put**: $\text{Vega}_{\text{put}} = \frac{\partial P}{\partial \sigma} = S\sqrt{T-t}N'(d_1)$
+- *Interpretation*: Sensitivity to volatility (same for calls and puts)
+
+#### Rho (ρ)
+- **Call**: $\rho_{\text{call}} = \frac{\partial C}{\partial r} = K(T-t)e^{-r(T-t)}N(d_2)$
+- **Put**: $\rho_{\text{put}} = \frac{\partial P}{\partial r} = -K(T-t)e^{-r(T-t)}N(-d_2)$
+- *Interpretation*: Sensitivity to interest rates
+
+Where:
+- $N(x)$ is the standard normal cumulative distribution function
+- $N'(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$ is the standard normal probability density function
+- $d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)(T-t)}{\sigma\sqrt{T-t}}$
+- $d_2 = d_1 - \sigma\sqrt{T-t}$
 
 ### 1.3 Model Validation
 #### 1.3.1 Put Call Parity Test
