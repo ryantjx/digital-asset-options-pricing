@@ -75,7 +75,9 @@ Timeframes : 15m, 1h, 24h
 |3 - 9 Feb 25| Writing Notes. | **Chapter 17-23** | 
 |10 - 16 Feb 25| Completing Notes | **Chapter 20-23** |
 |17 - 23 Feb 25| Brainstorming, build pricing scripts, compare pricing difference. |  |
-|24 Feb - 2 Mar 25| Devise trading strategies, backtest. | |
+||||
+|10 Mar - 17 Mar 25| Collect Deribit Option data. Backtest Models. Evaluate Performance | |
+|18 Mar - 25 Mar 25| Research and test other models. | |
 
 ## Milestones
 
