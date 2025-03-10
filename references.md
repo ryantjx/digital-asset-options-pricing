@@ -49,9 +49,13 @@
    3. [Optimally weighted loss functions for solving PDEs with Neural Networks](https://arxiv.org/pdf/2002.06269)
 ### Github Projects
 1. [Pricing of Some Exotic Options](https://github.com/AliBakly/Pricing-of-Some-Exotic-Options/tree/main)
+2. [Financial-Models-Numerical-Methods](https://github.com/cantaro86/Financial-Models-Numerical-Methods)
+   1. Repository of quantitative finance examples
+      1. [ ] Black-Scholes numerical methods (lognormal distribution, change of measure, Monte Carlo, Binomial method).
+      2. [ ] The Black-Scholes PDE (PDE discretization, Implicit method, sparse matrix tutorial)
+      3. [ ] Volatility tracking (Heston simulation, hypothesis testing, distribution fitting, estimation methods, GARCH(1,1), Kalman filter, Kalman smoother)
 
-
-### X
+### X.com/Twitter
 1. ["2) Unsophisticated traders think selling options is free money. So the big girls are massive option buyers and structurally long volatility."](https://x.com/bennpeifert/status/1878783199398273218)
 2. ["The lowest-hanging fruit in sell-side derivatives research is implied-realized vol spread."](https://x.com/OneHotCode1/status/1877957089500254656)
 3. ["GVV (gamma-vanna-volga) modeling."](https://x.com/bennpeifert/status/1888254737075835311)
