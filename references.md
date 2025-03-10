@@ -43,7 +43,10 @@
         - IX Which volatility should one hedge at - historical or implied?
 2. [On the Risk of Stocks in the Long Run](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5771)
    1. This paper examines the proposition that investing in common stocks is less risky the longer an investor plans to hold them. If the proposition were true, then the cost of insuring against earning less than the risk-free rate of interest should decline as the length of the investment horizon increases. The paper shows that the opposite is true even if stock returns are "mean-reverting" in the long run.
-
+3. [Pricing Options using Deep Neural Networks from a Practical Perspective: a Comparative Study of Supervised and Unsupervised Learning](https://www.imperial.ac.uk/media/imperial-college/faculty-of-natural-sciences/department-of-mathematics/math-finance/Pu-Viola_Ruo_Han_01977026.pdf)
+   1. [Github](https://github.com/violapu/OPNN)
+   2. Supervised learning performed much better.
+   3. [Optimally weighted loss functions for solving PDEs with Neural Networks](https://arxiv.org/pdf/2002.06269)
 ### Github Projects
 1. [Pricing of Some Exotic Options](https://github.com/AliBakly/Pricing-of-Some-Exotic-Options/tree/main)
 
