@@ -59,8 +59,8 @@ Timeframes : 15m, 1h, 24h
 # Development Timeline
 
 ## Progress
-- [X] Deribit API Data Collection
-- [ ] Pricing
+- [X] Deribit API Data Collection - To be used in the future. Currently will be using historical data.
+- [ ] Pricing Modules
 - [ ] Market Prices vs Model-Derived theoretical values.
 - [ ] Volatility
 - [ ] Sensitivity Analysis 
