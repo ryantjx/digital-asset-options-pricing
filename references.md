@@ -20,6 +20,9 @@
       3. hedging
 2. [Options Driven Volatility Forecasting](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4790644)
    1. some inspiration for further improvements - utilizing volatility forecasting to help in pricing. Use a regression model to get to improve pricing with other factors.
+3. [Pricing Options using Deep Neural Networks from a Practical Perspective: a Comparative Study of Supervised and Unsupervised Learning](https://www.imperial.ac.uk/media/imperial-college/faculty-of-natural-sciences/department-of-mathematics/math-finance/Pu-Viola_Ruo_Han_01977026.pdf)
+   1. [Github](https://github.com/violapu/OPNN)
+   2. Supervised learning performed much better.
 #### Strategies
 1. ["Which Free Lunch Would You Like Today, Sir?: Delta Hedging, Volatility Arbitrage and Optimal Portfolios](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=22554822cff90a56962f8ce4327587e86a42f1dc)
     - How to profit when there's a difference between the market's implied volatility (used in option pricing) and the actual volatility of the underlying asset. Hedging options mispriced by the market.
@@ -44,9 +47,8 @@
 2. [On the Risk of Stocks in the Long Run](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5771)
    1. This paper examines the proposition that investing in common stocks is less risky the longer an investor plans to hold them. If the proposition were true, then the cost of insuring against earning less than the risk-free rate of interest should decline as the length of the investment horizon increases. The paper shows that the opposite is true even if stock returns are "mean-reverting" in the long run.
 3. [Pricing Options using Deep Neural Networks from a Practical Perspective: a Comparative Study of Supervised and Unsupervised Learning](https://www.imperial.ac.uk/media/imperial-college/faculty-of-natural-sciences/department-of-mathematics/math-finance/Pu-Viola_Ruo_Han_01977026.pdf)
-   1. [Github](https://github.com/violapu/OPNN)
-   2. Supervised learning performed much better.
-   3. [Optimally weighted loss functions for solving PDEs with Neural Networks](https://arxiv.org/pdf/2002.06269)
+   1. 
+   2. [Optimally weighted loss functions for solving PDEs with Neural Networks](https://arxiv.org/pdf/2002.06269)
 ### Github Projects
 1. [Pricing of Some Exotic Options](https://github.com/AliBakly/Pricing-of-Some-Exotic-Options/tree/main)
 2. [Financial-Models-Numerical-Methods](https://github.com/cantaro86/Financial-Models-Numerical-Methods)
@@ -54,6 +56,7 @@
       1. [ ] Black-Scholes numerical methods (lognormal distribution, change of measure, Monte Carlo, Binomial method).
       2. [ ] The Black-Scholes PDE (PDE discretization, Implicit method, sparse matrix tutorial)
       3. [ ] Volatility tracking (Heston simulation, hypothesis testing, distribution fitting, estimation methods, GARCH(1,1), Kalman filter, Kalman smoother)
+   2. [ ] 
 
 ### X.com/Twitter
 1. ["2) Unsophisticated traders think selling options is free money. So the big girls are massive option buyers and structurally long volatility."](https://x.com/bennpeifert/status/1878783199398273218)
