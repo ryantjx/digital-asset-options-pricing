@@ -1,4 +1,4 @@
-# Deribit Options Pricing and Theoretical Value
+# Digital Asset Options Pricing 
 ## Table of Contents
 <!-- - [Deribit Options Pricing and Theoretical Value](#deribit-options-pricing-and-theoretical-value)
   - [Table of Contents](#table-of-contents) -->
