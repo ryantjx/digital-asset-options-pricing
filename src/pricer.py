@@ -1,213 +1,87 @@
 import QuantLib as ql
-from .enums import OptionType
-from .models.stochastic_processes import StochasticProcess
-"""
-Done (flat BSM stochastic process)
-1. MCEuropeanPricer
-2. BinomialEuropeanPricer
-3. AnalyticEuropeanPricer
-4. FdBlackScholesVanillaPricer
 
-To build
-4. MCEuropeanHestonEngine
-5. FdHestonVanillaEngine
-6. AnalyticPTDHestonEngine
-7. AnalyticEuropeanEngine
-
-Problems to solve
-- How can i customize the stochastic process to improve the pricing engine? 
-    - non flat yield structure?
-
-"""
 class Pricer:
-    def price_all():
+    def price():
         pass
-    # def price(self, underlying, strike, sigma, maturity, rf_rate, div):
-    #     pass
-
-class MCEuropeanPricer(Pricer):
-    """
-    Creates a Monte Carlo simulation engine for European options.
-    This engine simulates multiple price paths and averages the payoffs to price options.
-    Allows for more flexibility than analytical solutions but is computationally intensive.
-    
-    Args:
-        process (ql.GeneralizedBlackScholesProcess): Process describing the underlying's behavior
-        timesteps (int): Number of timesteps in each simulated path
-        required_samples (int): Number of Monte Carlo paths to simulate
-        seed (int): Random seed for reproducibility
-            
-    Returns:
-        ql.MCEuropeanEngine: A Monte Carlo-based pricing engine
-    """
-    def __init__(self, calculation_date, option_type, steps, num_paths, seed = 42):
-        self.calculation_date = calculation_date
-        self.option_type = OptionType.ql_type(option_type)
-        self.steps = steps
-        self.num_paths = num_paths
-        self.seed = seed
-        print(f"Created {MCEuropeanPricer.__name__} on {calculation_date} and option type {self.option_type}")
-    
-    def price(self, underlying, strike, sigma, maturity, rf_rate, div):
-        maturity_date = ql.Date(self.calculation_date.serialNumber() + int(maturity))
-        day_count = ql.Actual365Fixed()
-        calendar = ql.UnitedStates(ql.UnitedStates.NYSE)
-        ql.Settings.instance().evaluationDate = self.calculation_date
-
-        bsm_process = StochasticProcess.bsm_process(underlying, rf_rate, div, sigma, self.calculation_date, day_count, calendar)
-        
-        payoff = ql.PlainVanillaPayoff(self.option_type, strike)
-        europeanExercise = ql.EuropeanExercise(maturity_date)
-        europeanOption = ql.VanillaOption(payoff, europeanExercise)
-
-        engine = ql.MCEuropeanEngine(bsm_process, "pseudorandom", self.steps, requiredSamples=self.num_paths, seed=self.seed)
-        europeanOption.setPricingEngine(engine)
-
-        option_price = europeanOption.NPV()
-        print(f"MCEuropeanEngine Option Pricing:")
-        # print(f"  Underlying price: {underlying:.2f}")
-        # print(f"  Strike price: {strike:.2f}")
-        # print(f"  Volatility: {sigma:.2%}")
-        # print(f"  Maturity: {maturity} days (until {maturity_date})")
-        # print(f"  Risk-free rate: {rf_rate:.2%}")
-        # print(f"  Dividend yield: {div:.2%}")
-        # print(f"  Valuation date: {self.calculation_date}")
-        print(f"  Option price: {option_price:.4f}")
-        return option_price
-
-class BinomialEuropeanPricer(Pricer):
-    def __init__(self, calculation_date, option_type, steps):
-        self.calculation_date = calculation_date
-        self.option_type = OptionType.ql_type(option_type)
-        self.steps = steps
-        print(f"Created {BinomialEuropeanPricer.__name__} on {calculation_date} and option type {self.option_type}")
-    
-    def price(self, underlying, strike, sigma, maturity, rf_rate, div):
-        maturity_date = ql.Date(self.calculation_date.serialNumber() + int(maturity))
-        day_count = ql.Actual365Fixed()
-        calendar = ql.UnitedStates(ql.UnitedStates.NYSE)
-        ql.Settings.instance().evaluationDate = self.calculation_date
-
-        bsm_process = StochasticProcess.bsm_process(underlying, rf_rate, div, sigma, self.calculation_date, day_count, calendar)
-
-        payoff = ql.PlainVanillaPayoff(self.option_type, strike)
-        europeanExercise = ql.EuropeanExercise(maturity_date)
-        europeanOption = ql.VanillaOption(payoff, europeanExercise)
-
-        engine = ql.BinomialVanillaEngine(bsm_process, "crr", self.steps)
-        europeanOption.setPricingEngine(engine)
-        option_price = europeanOption.NPV()
-        option_type_name = "Call" if self.option_type == ql.Option.Call else "Put"
-        print(f"BinomialVanillaEngine {option_type_name} Option Pricing:")
-        # print(f"  Underlying price: {underlying:.2f}")
-        # print(f"  Strike price: {strike:.2f}")
-        # print(f"  Volatility: {sigma:.2%}")
-        # print(f"  Maturity: {maturity} days (until {maturity_date})")
-        # print(f"  Risk-free rate: {rf_rate:.2%}")
-        # print(f"  Dividend yield: {div:.2%}")
-        # print(f"  Valuation date: {self.calculation_date}")
-        print(f"  Option price: {option_price:.4f}")
-        return europeanOption.NPV()
 
 class AnalyticEuropeanPricer(Pricer):
-    """
-    Black-Scholes-Merton closed-form solution for European options.
+    def __init__(self, option_type = ql.Option.Call):
+        self.option_type = option_type
+        print(f"Created {AnalyticEuropeanPricer.__name__} and option type {self.option_type}")
     
-    Best for: Standard European vanilla options under BSM assumptions.
-    Advantages: Extremely fast computation with exact solution.
-    Limitations: Only works for European exercise, requires BSM assumptions.
-    """
-    def __init__(self, calculation_date, option_type = 1):
-        self.calculation_date = calculation_date
-        self.option_type = OptionType.ql_type(option_type)
-        print(f"Created {AnalyticEuropeanPricer.__name__} on {calculation_date} and option type {self.option_type}")
-
-    def price(self, underlying, strike, sigma, maturity, rf_rate, div):
-        maturity_date = ql.Date(self.calculation_date.serialNumber() + int(maturity))
+    def price(self, calculation_date, underlying, strike, sigma, rf_rate, days_to_maturity, div):
+        maturity_date = ql.Date(calculation_date.serialNumber() + int(days_to_maturity))
         day_count = ql.Actual365Fixed()
         calendar = ql.UnitedStates(ql.UnitedStates.NYSE)
-        ql.Settings.instance().evaluationDate = self.calculation_date
+        ql.Settings.instance().evaluationDate = calculation_date
 
-        bsm_process = StochasticProcess.bsm_process(underlying, rf_rate, div, sigma, self.calculation_date, day_count, calendar)
-        
+        bsm_process = ql.BlackScholesMertonProcess(
+            s0 = ql.QuoteHandle(ql.SimpleQuote(underlying)),
+            dividendTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, div, day_count)),
+            riskFreeTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, rf_rate, day_count)),
+            volTS = ql.BlackVolTermStructureHandle(ql.BlackConstantVol(calculation_date, calendar, sigma, day_count)),
+        )
         payoff = ql.PlainVanillaPayoff(self.option_type, strike)
-        europeanExercise = ql.EuropeanExercise(maturity_date)
-        europeanOption = ql.VanillaOption(payoff, europeanExercise)
+        europeanExcercise = ql.EuropeanExercise(maturity_date)
+        europeanOption = ql.VanillaOption(payoff, europeanExcercise)
 
         engine = ql.AnalyticEuropeanEngine(bsm_process)
         europeanOption.setPricingEngine(engine)
 
-        option_price = europeanOption.NPV()
-
-        # Comprehensive print statement
-        option_type_name = "Call" if self.option_type == ql.Option.Call else "Put"
-        print(f"AnalyticEuropeanEngine(BSM) {option_type_name} Option Pricing:")
-        # print(f"  Underlying price: {underlying:.2f}")
-        # print(f"  Strike price: {strike:.2f}")
-        # print(f"  Volatility: {sigma:.2%}")
-        # print(f"  Maturity: {maturity} days (until {maturity_date})")
-        # print(f"  Risk-free rate: {rf_rate:.2%}")
-        # print(f"  Dividend yield: {div:.2%}")
-        # print(f"  Valuation date: {self.calculation_date}")
-        print(f"  Option price: {option_price:.4f}")
-        
-        # # Calculate additional Greeks for verification
-        # delta = europeanOption.delta()
-        # gamma = europeanOption.gamma()
-        # theta = europeanOption.theta()
-        # vega = europeanOption.vega()
-        # print(f"  Greeks:")
-        # print(f"    Delta: {delta:.4f}")
-        # print(f"    Gamma: {gamma:.6f}")
-        # print(f"    Theta: {theta:.6f}")
-        # print(f"    Vega: {vega:.6f}")
-        return option_price
+        return europeanOption.NPV()
     
-class FdBlackScholesVanillaPricer(Pricer):
-    """
-    Creates a finite difference method engine for European options.
-    This engine discretizes the Black-Scholes PDE and solves it numerically.
-    Offers a good balance between speed and flexibility, and can handle various features.
+class MCEuropeanPricer(Pricer):
+    def __init__(self, steps, num_paths, option_type = ql.Option.Call, seed = 42):
+        self.steps = steps
+        self.num_paths = num_paths
+        self.seed = seed
+        self.option_type = option_type
+        print(f"Created {MCEuropeanPricer.__name__} and option type {self.option_type}")
     
-    Args:
-        process (ql.GeneralizedBlackScholesProcess): Process describing the underlying
-        time_grid (int): Number of time steps in the finite difference grid
-        stock_grid (int): Number of price levels in the finite difference grid
-            
-    Returns:
-        ql.FdBlackScholesVanillaEngine: A finite difference pricing engine
-    """
-    def __init__(self, calculation_date, option_type, time_grid, stock_grid):
-        self.calculation_date = calculation_date
-        self.option_type = OptionType.ql_type(option_type)
-        self.time_grid = time_grid
-        self.stock_grid = stock_grid
-        print(f"Created {FdBlackScholesVanillaPricer.__name__} with time grid {time_grid} and stock grid {stock_grid}")
-    
-    def price(self, underlying, strike, sigma, maturity, rf_rate, div):
-        maturity_date = ql.Date(self.calculation_date.serialNumber() + int(maturity))
+    def price(self, calculation_date, underlying, strike, sigma, rf_rate, days_to_maturity, div):
+        maturity_date = ql.Date(calculation_date.serialNumber() + int(days_to_maturity))
         day_count = ql.Actual365Fixed()
         calendar = ql.UnitedStates(ql.UnitedStates.NYSE)
-        ql.Settings.instance().evaluationDate = self.calculation_date
+        ql.Settings.instance().evaluationDate = calculation_date
 
-        bsm_process = StochasticProcess.bsm_process(underlying, rf_rate, div, sigma, self.calculation_date, day_count, calendar)
-
+        bsm_process = ql.BlackScholesMertonProcess(
+            s0 = ql.QuoteHandle(ql.SimpleQuote(underlying)),
+            dividendTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, div, day_count)),
+            riskFreeTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, rf_rate, day_count)),
+            volTS = ql.BlackVolTermStructureHandle(ql.BlackConstantVol(calculation_date, calendar, sigma, day_count)),
+        )
         payoff = ql.PlainVanillaPayoff(self.option_type, strike)
-        europeanExercise = ql.EuropeanExercise(maturity_date)
-        europeanOption = ql.VanillaOption(payoff, europeanExercise)
+        europeanExcercise = ql.EuropeanExercise(maturity_date)
+        europeanOption = ql.VanillaOption(payoff, europeanExcercise)
 
-        engine = ql.FdBlackScholesVanillaEngine(bsm_process, self.time_grid, self.stock_grid)
+        engine = ql.MCEuropeanEngine(bsm_process, "pseudorandom", self.steps, requiredSamples=self.num_paths, seed=self.seed)
         europeanOption.setPricingEngine(engine)
-        option_price = europeanOption.NPV()
 
-        option_type_name = "Call" if self.option_type == ql.Option.Call else "Put"
-        print(f"FdBlackScholesVanillaEngine {option_type_name} Option Pricing:")
-        # print(f"  Underlying price: {underlying:.2f}")
-        # print(f"  Strike price: {strike:.2f}")
-        # print(f"  Volatility: {sigma:.2%}")
-        # print(f"  Maturity: {maturity} days (until {maturity_date})")
-        # print(f"  Risk-free rate: {rf_rate:.2%}")
-        # print(f"  Dividend yield: {div:.2%}")
-        # print(f"  Valuation date: {self.calculation_date}")
-        print(f"  Option price: {option_price:.4f}")
-        return option_price
+        return europeanOption.NPV()
+    
+class BinomialEuropeanPricer(Pricer):
+    def __init__(self, steps, option_type = ql.Option.Call):
+        self.steps = steps
+        self.option_type = option_type
+        print(f"Created {BinomialEuropeanPricer.__name__} and option type {self.option_type}")
+    
+    def price(self, calculation_date, underlying, strike, sigma, rf_rate, days_to_maturity, div):
+        maturity_date = ql.Date(calculation_date.serialNumber() + int(days_to_maturity))
+        day_count = ql.Actual365Fixed()
+        calendar = ql.UnitedStates(ql.UnitedStates.NYSE)
+        ql.Settings.instance().evaluationDate = calculation_date
+
+        bsm_process = ql.BlackScholesMertonProcess(
+            s0 = ql.QuoteHandle(ql.SimpleQuote(underlying)),
+            dividendTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, div, day_count)),
+            riskFreeTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, rf_rate, day_count)),
+            volTS = ql.BlackVolTermStructureHandle(ql.BlackConstantVol(calculation_date, calendar, sigma, day_count)),
+        )
+        payoff = ql.PlainVanillaPayoff(self.option_type, strike)
+        europeanExcercise = ql.EuropeanExercise(maturity_date)
+        europeanOption = ql.VanillaOption(payoff, europeanExcercise)
+
+        engine = ql.BinomialVanillaEngine(bsm_process, "crr", self.steps)
+        europeanOption.setPricingEngine(engine)
+
+        return europeanOption.NPV()

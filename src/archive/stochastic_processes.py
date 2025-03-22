@@ -31,9 +31,23 @@ class StochasticProcess:
         Returns:
             ql.BlackScholesMertonProcess: The configured BSM process
         """
+        # print("params : ", underlying, rf_rate, div_yield, sigma, calculation_date, day_count, calendar)
+        print(f"""params: 
+            underlying: {underlying},
+            rf_rate: {rf_rate},
+            div_yield: {div_yield},
+            sigma: {sigma},
+            calculation_date: {calculation_date},
+            day_count: {day_count},
+            calendar: {calendar}""")
+        
+        print('Creating BSM process')
         riskFreeTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, rf_rate, day_count))
+        print('Risk-free term structure created')
         dividendTS = ql.YieldTermStructureHandle(ql.FlatForward(calculation_date, div_yield, day_count))
+        print('Dividend term structure created')
         bsVolTS = ql.BlackVolTermStructureHandle(ql.BlackConstantVol(calculation_date, calendar, sigma, day_count))
+        print('bsVolTS created')
         initialValue = ql.QuoteHandle(ql.SimpleQuote(underlying))
         return ql.BlackScholesMertonProcess(initialValue, dividendTS, riskFreeTS, bsVolTS)
     
