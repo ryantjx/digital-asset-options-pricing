@@ -120,3 +120,76 @@ def dual_axis_plot(df, x_axis, y_left_col, y_right_col,
     
     plt.tight_layout()
     plt.show()
+
+def plot_multiple_cols(df, x_axis, y_columns, 
+                      title='Multi-Column Plot', 
+                      colors=None, figsize=(15, 6), grid=True,
+                      markers=None, linestyles=None, alphas=None,
+                      legend_loc='best', x_label=None, y_label=None,
+                      x_rotation=45):
+    
+    # Make a copy of the DataFrame
+    df_plot = df.copy()
+    
+    # Set up default values
+    n_columns = len(y_columns)
+    
+    if colors is None:
+        # Use default color cycle
+        colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
+        # Extend the list if we have more columns than colors
+        colors = (colors * (n_columns // len(colors) + 1))[:n_columns]
+    
+    if markers is None:
+        markers = [None] * n_columns
+    elif len(markers) < n_columns:
+        markers = markers + [None] * (n_columns - len(markers))
+    
+    if linestyles is None:
+        linestyles = ['-'] * n_columns
+    elif len(linestyles) < n_columns:
+        linestyles = linestyles + ['-'] * (n_columns - len(linestyles))
+    
+    if alphas is None:
+        alphas = [1.0] * n_columns
+    elif len(alphas) < n_columns:
+        alphas = alphas + [1.0] * (n_columns - len(alphas))
+    
+    # Create figure and axis
+    fig, ax = plt.subplots(figsize=figsize)
+    
+    # Plot each column
+    for i, col in enumerate(y_columns):
+        ax.plot(
+            df_plot[x_axis], 
+            df_plot[col], 
+            color=colors[i % len(colors)], 
+            marker=markers[i], 
+            linestyle=linestyles[i],
+            alpha=alphas[i],
+            label=col
+        )
+    
+    # Set labels and title
+    if x_label is None:
+        x_label = x_axis
+    ax.set_xlabel(x_label)
+    
+    if y_label is not None:
+        ax.set_ylabel(y_label)
+    
+    ax.set_title(title)
+    
+    # Add grid if requested
+    if grid:
+        ax.grid(True, linestyle='--', alpha=0.5)
+    
+    # Add legend
+    ax.legend(loc=legend_loc)
+    
+    # Rotate x-axis labels
+    plt.xticks(rotation=x_rotation)
+    
+    plt.tight_layout()
+    
+    plt.show()

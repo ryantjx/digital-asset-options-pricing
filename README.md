@@ -2,16 +2,16 @@
 ## Table of Contents
 <!-- - [Deribit Options Pricing and Theoretical Value](#deribit-options-pricing-and-theoretical-value)
   - [Table of Contents](#table-of-contents) -->
-- [Deribit Options Pricing and Theoretical Value](#deribit-options-pricing-and-theoretical-value)
+- [Digital Asset Options Pricing](#digital-asset-options-pricing)
   - [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
   - [Motivation](#motivation)
   - [Goals](#goals)
   - [Instrument](#instrument)
 - [Development Timeline](#development-timeline)
-  - [Progress](#progress)
+  - [Projects](#projects)
   - [Schedule](#schedule)
-  - [Milestones](#milestones)
+  - [Progress](#progress)
 - [Further Exploration](#further-exploration)
 
 # Introduction
@@ -58,12 +58,15 @@ Timeframes : 15m, 1h, 24h
 
 # Development Timeline
 
-## Progress
-- [X] Deribit API Data Collection - To be used in the future. Currently will be using historical data.
-- [ ] Pricing Modules
-- [ ] Market Prices vs Model-Derived theoretical values.
-- [ ] Volatility
-- [ ] Sensitivity Analysis 
+## Projects 
+1. Option mispricing based on different volatility models
+   1. ann_parkinson_vol
+   2. ann_garmanklass_vol
+   3. ann_rogerssatchell_vol
+   4. ann_yangzhang_vol
+2. Intraday Option Pricing Module
+3. 
+<!-- 1. Intraday Option Pricing - Further iteration from QuantLib. -->
 
 ## Schedule
 
@@ -76,11 +79,17 @@ Timeframes : 15m, 1h, 24h
 |10 - 16 Feb 25| Completing Notes | **Chapter 20-23** |
 |17 - 23 Feb 25| Brainstorming, build pricing scripts, compare pricing difference. |  |
 ||||
-|10 Mar - 17 Mar 25| Collect Deribit Option data. Backtest Models. Evaluate Performance | |
-|18 Mar - 25 Mar 25| Research and test other models. | |
+|10 Mar - 16 Mar 25| Collect Deribit Option data. Backtest Models. Evaluate Performance | |
+|17 Mar - 23 Mar 25| Research and test models. | |
+|24 Mar - 6 Apr 25| Develop models to fit intraday option pricing. | |
+<!-- |24 Mar - 30 Mar 25| Develop Intraday Option Pricing Module - Limitations from QuantLib. | | -->
 
-## Milestones
-
+## Progress
+- [X] Deribit API Data Collection - To be used in the future. Currently will be using historical data.
+- [X] Pricing Modules
+- [ ] Market Prices vs Model-Derived theoretical values.
+- [ ] Volatility
+- [ ] Sensitivity Analysis
 --- 
 # Further Exploration
 - Instruments

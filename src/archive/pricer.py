@@ -1,6 +1,6 @@
 import QuantLib as ql
 from ..enums import OptionType, OptionColumns
-from ..models.stochastic_processes import StochasticProcess
+from .stochastic_processes import StochasticProcess
 import numpy as np
 from tqdm import tqdm
 
